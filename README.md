@@ -1,33 +1,27 @@
-# 📊 Professional Java Expense Tracker (CLI)
+# 📊 Java Expense Insight Engine (v2.0)
 
-A robust backend-focused financial management system developed in **Java** with **SQLite** integration. This project demonstrates industry-standard practices in Object-Oriented Programming (OOP), database persistence, and financial data analytics.
+A sophisticated financial management system built with **Java 17** and **SQLite**. This version introduces a **SQL-driven Analytics Engine** that provides visual spending breakdowns directly in the CLI.
 
-## 🚀 Key Features
-- **Full CRUD Operations:** Create, Read, Update, and Delete expense records with persistent storage.
-- **SQL-Driven Analytics:** Real-time spending breakdowns using SQL `GROUP BY` and `SUM` aggregations.
-- **Budget Monitoring Engine:** Automated validation logic that compares current spending against user-defined monthly limits.
-- **Reliable Persistence:** Integrated with **SQLite via JDBC** to ensure data is saved even after the application closes.
+## 🌟 New Feature: Advanced Analytics
+- **SQL Aggregation:** Uses complex `GROUP BY` and `SUM` queries to calculate spending percentages at the database level.
+- **ASCII Data Visualization:** Generates dynamic bar charts in the terminal to visualize category-wise budget distribution.
+- **Real-time Processing:** Calculations are performed on-the-fly, ensuring the dashboard is always up-to-date.
 
-## 🛠️ Technical Stack
-- **Language:** Java (JDK 17+)
-- **Database:** SQLite (Relational Database)
-- **Driver:** JDBC (Java Database Connectivity)
-- **Version Control:** Git & GitHub
 
-## 🏗️ Architecture
-This project follows a **Service-Oriented Architecture (SOA)**:
-- **Model:** Encapsulated data objects (Expense, User).
-- **Service Layer:** Business logic and SQL execution (ExpenseServiceImpl).
-- **Utility:** Database connection management (DBConnection).
-- **Main/UI:** CLI-based user interaction loop.
 
-## 📉 Learning Outcomes
-Developed to bridge the gap between academic theory and industry application:
-1. **Security:** Prevented SQL Injection vulnerabilities using `PreparedStatement`.
-2. **Clean Code:** Implemented Interfaces to ensure loose coupling and scalability.
-3. **Data Integrity:** Managed database connection lifecycles to prevent memory leaks.
+## 🛠️ Technical Excellence
+- **Architecture:** Implemented using **Interfaces** to ensure loose coupling (SOLID Principles).
+- **Persistence:** High-performance data storage using **SQLite JDBC**.
+- **Security:** Strict use of **PreparedStatements** to mitigate SQL Injection risks.
+- **Clean Code:** 100% separation of concerns between Model, Service, and Utility layers.
 
-## ⚙️ Setup & Installation
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/tejasssolanki/Java-Expense-Tracker.git](https://github.com/tejasssolanki/Java-Expense-Tracker.git)
+## 🚀 How to Run
+1. Ensure you have the `sqlite-jdbc` jar in your `/lib` folder.
+2. Compile: `javac -cp "lib/*" -d out src/expensetracker/**/*.java`
+3. Run: `java -cp "out;lib/*" expensetracker.main.Main`
+
+## 📈 Learning Journey
+By building this, I mastered:
+1. **Relational Database Design:** Creating efficient schemas for financial data.
+2. **Advanced Java Logic:** Managing complex loops and formatting for CLI UI/UX.
+3. **Version Control:** Professional Git workflow, including `.gitignore` management and remote synchronization.
