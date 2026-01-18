@@ -28,7 +28,8 @@ public class Main {
             System.out.println("3. 📊 View Category Breakdown");
             System.out.println("4. 💰 Check Budget Status");
             System.out.println("5. 🗑️ Delete Expense");
-            System.out.println("6. ❌ Exit");
+            System.out.println("6. View Category Analytics 📊");
+            System.out.println("7. ❌ Exit");
             System.out.print("Select an option: ");
 
             int choice = sc.nextInt();
@@ -75,6 +76,9 @@ public class Main {
                     service.deleteExpense(idToDelete);
                     break;
                 case 6:
+                    service.displayCategoryAnalytics(); // Call the new 8/10 feature
+                    break;
+                case 7:
                     running = false;
                     System.out.println("Data saved. Closing Expense Tracker...");
                     break;

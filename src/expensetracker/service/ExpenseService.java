@@ -16,5 +16,6 @@ public interface ExpenseService {
 
     void calculateTotalAndCheckBudget(double monthlyBudget);
     void viewCategoryBreakdown();
+    void displayCategoryAnalytics();
 
 }

@@ -128,4 +128,34 @@ public class ExpenseServiceImpl implements ExpenseService {
             System.out.println("❌ Delete Error: " + e.getMessage());
         }
     }
+    public void displayCategoryAnalytics() {
+        // This SQL query calculates the sum per category and the total overall
+        String query = "SELECT category, SUM(amount) as total_cat, " +
+                "(SELECT SUM(amount) FROM expenses) as grand_total " +
+                "FROM expenses GROUP BY category";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(query);
+             ResultSet rs = pstmt.executeQuery()) {
+
+            System.out.println("\n--- 📊 FINANCIAL ANALYTICS REPORT ---");
+            while (rs.next()) {
+                String category = rs.getString("category");
+                double catTotal = rs.getDouble("total_cat");
+                double grandTotal = rs.getDouble("grand_total");
+                double percentage = (catTotal / grandTotal) * 100;
+
+                // Visual Bar Chart Logic
+                int barWidth = (int) (percentage / 5); // 1 block per 5%
+                String bar = "█".repeat(Math.max(0, barWidth));
+
+                System.out.printf("%-12s: ₹%-8.2f [%-20s] %.1f%%\n",
+                        category, catTotal, bar, percentage);
+            }
+            System.out.println("---------------------------------------\n");
+
+        } catch (SQLException e) {
+            System.out.println("Error generating analytics: " + e.getMessage());
+        }
+    }
 }
